@@ -12,7 +12,7 @@
 ## 
 1. Git clone 
 2. Open Visual Studio 
-3. Open the project file - workshops/mtc_multi_environment_workshop/dotnet_webapp_backend_teachers/teachersrestapi/teachersrestapi.sln
+3. Open the project file - dotnet_webapp_backend_teachers_api/teachersrestapi/teachersrestapi.sln
 4. Change the configuration in appsettings.json to connect to your db
 5. Publish the project to Azure App Service  
   

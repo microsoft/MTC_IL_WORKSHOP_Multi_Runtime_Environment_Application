@@ -177,7 +177,7 @@
    ```
 
 ## Create AppService for Teachers API
-[Create AppService for Teachers API](./dotnet_webapp_backend_teachers)
+[Create AppService for Teachers API](./dotnet_webapp_backend_teachers_api)
 
 ## Create Teachers API in API Management
 1. Go to your API management - schoolappapimanagement
@@ -433,8 +433,8 @@
 ## Workload identity
 
 ```bash
-az aks update --name aksba92 --resource-group schoolapp --enable-oidc-issuer
-az aks addon list -g schoolapp -n aksba92 # show addon list 
+az aks update --name <aksClusterName> --resource-group schoolapp --enable-oidc-issuer
+az aks addon list -g schoolapp -n <aksClusterName> # show addon list 
 ```
 
 ## Upgrade AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver support
@@ -458,7 +458,7 @@ az aks addon list -g schoolapp -n aksba92 # show addon list
 
 
 
-## Create a Key Vault and store the secrets for database connection
+## Create a Key Vault and store the secrets for database connection - Optional ( Need to configure an aks cluster for key-vault connection )
 1. Go to Azure Portal
 2. Create a resource - Key Vault 
 3. In Key Vault details:  
@@ -492,12 +492,13 @@ az aks addon list -g schoolapp -n aksba92 # show addon list
 ## Deploy Workers Application to AKS Cluster
 1. Open Cloud Shell  
 2. Clone the git repo
-3. Open the project - multienvapponazure/nodejs_aks_backend_workers/
-4. Build the image and push it to your ACR:  
+3. Open the project - ./nodejs_aks_backend_workers_api/
+4. Change the configuration in config.js file to connect to the DB
+5. Build the image and push it to your ACR:  
    ```bash
    az acr build --image workers:0.1 --registry <registryName> --file Dockerfile .
    ```
-5. In the workers-k8s.yaml file, replace the image name with yours, the file will have the following shape (exmaple):    
+6. In the workers-k8s.yaml file, replace the image name with yours, the file will have the following shape (exmaple):    
    ```bash
    - image: "<registryName>.azurecr.io/workers:0.1"
      name: workersapp
@@ -505,15 +506,15 @@ az aks addon list -g schoolapp -n aksba92 # show addon list
      - containerPort: 8080
        protocol: TCP
    ``` 
-6. To create Pod, Service and Ingress resources run:    
+7. To create Pod, Service and Ingress resources run:    
    ```bash
    kubectl create -f workers-k8s.yaml
    ```
-7. To show your ingress ip run:  
+8. To show your ingress ip run:  
    ```bash
    kubectl get ingress
    ```
-8. Open a web browser and check the app - http://ingressIpAddress:80  
+9. Open a web browser and check the app - http://ingressIpAddress:80  
      
     <img src="./assets/workers_app.png" alt="workers app" width="300"/>   
    
@@ -560,12 +561,13 @@ az aks addon list -g schoolapp -n aksba92 # show addon list
     <img src="./assets/localstorage_static_website.png" alt="localstorage static website" width="1000"/>  
       
 12. Clone the git repo
-13. Open the project - multienvapponazure/react_frontend_website_no_authentication
-14. Run ```npm install```
-15. Run ```npm run build``` - Build a project and store it in a build directory
-16. Upload all files to $web directory in a storage account 
-17. In left navigation panel choose ***Static website***
-18. Copy the ***Primary endpoint*** url and test in your web browser
+13. Open the project - ./react_frontend_website_no_authentication
+14. Edit Api.js file and configure a baseUrl and Ocp-Apim-Subscription-Key
+15. Run ```npm install```
+16. Run ```npm run build``` - Build a project and store it in a build directory
+17. Upload all files to $web directory in a storage account 
+18. In left navigation panel choose ***Static website***
+19. Copy the ***Primary endpoint*** url and test in your web browser
 
 
 ## Securing EMR Application
