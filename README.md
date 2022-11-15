@@ -64,7 +64,7 @@
     - ```Administrator email``` - Choose your administrator email
     - ```Pricing tier``` - Choose Consumption tier
     - ```System assigned managed identity``` - Mark the Status
-    - ```Connectivity type``` - None
+    - ```Connectivity type``` - None  
 4. Review + create 
 5. Create
 
@@ -148,8 +148,8 @@
        - Hit Apply
      - ```Backup storage redundancy``` - Choose Locally-redundant backup storage
      - ```Connectivity method``` - Select Public endpoint (For this demo only)
-     - Review + create\
-     - Create
+     - Review + create  
+     - Create  
    - ```Location``` - Choose your location
    - ```Capacity mode``` - Provisioned throughput
    - ```Apply Free Tier Discount``` - Apply if you want discount   
