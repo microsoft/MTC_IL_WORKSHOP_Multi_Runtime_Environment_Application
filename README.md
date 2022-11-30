@@ -59,7 +59,7 @@
     - ```Subscription``` - Choose your subscription
     - ```Resource Group``` - Choose **schoolapp** resource group
     - ```Region``` - Choose West Europe
-    - ```Resource name``` - Choose **schoolappapimanagement**
+    - ```Resource name``` - Choose **schoolappapimanagement<number>** # Must be globally unique 
     - ```Organization name``` - Choose your organization name
     - ```Administrator email``` - Choose your administrator email
     - ```Pricing tier``` - Choose Consumption tier
@@ -84,7 +84,8 @@
 4. Review + create
 5. Create
 6. Go to your CosmosDB account
-7. Create a Container
+7. Go to Data Explorer. 
+8. Create a Container
    - ```Database id``` - studentdb
    - ```Database throughput``` - Manual - 400
    - ```Container id``` - studentsdbcontainer
@@ -92,8 +93,8 @@
 
 <img src="./assets/cosmosdb-container-db-creation.png" alt="cosmosdb container db creation" width="400"/>
 
-8. Go to studentsdbcontainer -> Items
-9. New Item 
+9. Go to studentsdbcontainer -> Items
+10. New Item 
    ```
    {
     "Email": "student1@mtc.com",
@@ -103,7 +104,7 @@
     "Class": "History"
    }
    ```
-10. Save
+11. Save
 
 ## Create Function App for Students API
 [Create Function App for Students api](./nodejs_functions_backend_students_api/)
@@ -120,14 +121,14 @@
 **_NOTE:_** If you don't see your function app in the functions list, create a managed identity and give a contributor role to your function app  
   
 1. Check all your functions and hit Select
-2. ```API URL suffix``` - Choose students
-3.  Hit Create
-4.  Go to deleteStudent and getStudent functions
-5.  Edit Frontend  
-<img src="./assets/functions_edit_frontend.png" alt="api management select function app" width="600"/>  
-12. Under Query add an email parameter and check required box
-13. Hit Save  
-14. Test the APIs  
+2. ```API URL suffix``` - Choose students. 
+3.  Hit Create. 
+4.  Go to deleteStudent and getStudent functions. 
+5.  Edit Frontend.   
+<img src="./assets/functions_edit_frontend.png" alt="api management select function app" width="600"/>.   
+12. Under Query add an email parameter and check required box. 
+13. Hit Save.     
+14. Test the APIs. 
   
 **_NOTE:_** To test your API in API clients like POSTMAN, you need to add a Header with key - **Ocp-Apim-Subscription-Key** and value of **Subscriptions key** from the Subscription section in the API blade
 
