@@ -170,13 +170,14 @@
     Name varchar(255),
     Age int,
     Gender varchar(255),
+    Class varchar(255)
     );
    ```
 7. In Query Editor create few rows:  
    ```
-    INSERT INTO Teachers (Email, Name, Age, Gender) VALUES ('Teacher1@mtc.com', 'Teacher One', 45, 'Male')
-    INSERT INTO Teachers (Email, Name, Age, Gender) VALUES ('Teacher2@mtc.com', 'Teacher Two', 32, 'Female')
-    INSERT INTO Teachers (Email, Name, Age, Gender) VALUES ('Teacher3@mtc.com', 'Teacher Three', 29, 'Female')
+    INSERT INTO Teachers (Email, Name, Age, Gender, Class) VALUES ('Teacher1@mtc.com', 'Teacher One', 45, 'Male', 'History')
+    INSERT INTO Teachers (Email, Name, Age, Gender, Class) VALUES ('Teacher2@mtc.com', 'Teacher Two', 32, 'Female', 'Math')
+    INSERT INTO Teachers (Email, Name, Age, Gender, Class) VALUES ('Teacher3@mtc.com', 'Teacher Three', 29, 'Female', 'Computer Science')
    ```
 
 ## Create AppService for Teachers API
