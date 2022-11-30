@@ -148,7 +148,9 @@
        - ```Service tier``` - select DTU-based purchasing model - Basic
        - Hit Apply
      - ```Backup storage redundancy``` - Choose Locally-redundant backup storage
-     - ```Connectivity method``` - Select Public endpoint (For this demo only)
+     - ```Connectivity method``` - Select Public endpoint (For this demo only) 
+       - Allow Azure services and resource to access this tier - Yes. 
+       - Add current client IP address - Yes. 
      - Review + create  
      - Create  
    - ```Location``` - Choose your location
